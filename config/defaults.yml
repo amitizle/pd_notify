@@ -1,0 +1,12 @@
+---
+urgencies:
+  - high
+statuses:
+  - triggered
+services: []
+users: []
+base_url: "https://api.pagerduty.com"
+poll_interval_seconds: 10
+# See https://www.pagerduty.com/resources/logo/
+app_icon_url: "https://www.pagerduty.com/wp-content/uploads/2014/08/icon-pd-slate-1024.png"
+api_key: ""

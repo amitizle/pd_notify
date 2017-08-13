@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'pd_notify'
+require 'optparse'
+
+
+config_dir = File.join(File.expand_path(__dir__), '..', 'config')
+$default_file_path = File.join(config_dir, 'defaults.yml')
+$config_file_path = File.expand_path('~/.config/pdnotify/config.yml')
+
+global_opts = OptionParser.new do |parser|
+  parser.on('-c', '--config <path>', String, "Path to config file, defaults to #{$config_file_path}") do |config_path|
+    $config_file_path = config_path
+  end
+end
+
+PdNotify::Utils::Config.init($config_file_path, $default_file_path)
+PdNotify::Runner.new.run
